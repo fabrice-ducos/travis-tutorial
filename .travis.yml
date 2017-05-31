@@ -4,13 +4,20 @@ dist: trusty
 
 script: py.test
 
-python:
-  - 2.7
-  - 3.6
+#python:
+#  - 2.7
+#  - 3.6
 
-env:
-  #- NUMPY_VERSION=1.7.1
-  - NUMPY_VERSION=1.12.1
+#env:
+#  #- NUMPY_VERSION=1.7.1
+#  - NUMPY_VERSION=1.12.1
+
+matrix:
+  include:
+  - python: "2.7"
+    env: NUMPY_VERSION=1.7.1
+  - python: "3.6"
+    env: NUMPY_VERSION=1.12.1
 
 cache: pip
 
